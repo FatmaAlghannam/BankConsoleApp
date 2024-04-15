@@ -10,6 +10,8 @@ class BankAccount
     private const int maxTransaction = 50;
     private double[] transactions = new double[maxTransaction];
     private int transactionCount = 0;
+    public bool IsAccountFrozen = false;
+
 
    
     public BankAccount(string name, int accountNumber, double initialBalance)
@@ -98,7 +100,8 @@ class Program
                 case 2:
                     Console.WriteLine("   Enter Withdrawal Amount: ");
                     double withdrawalAmount = double.Parse(Console.ReadLine());
-                    account.Withdraw(withdrawalAmount);
+                    //account.Withdraw(withdrawalAmount);
+                    account.Withdraw(withdrawalAmount * -1);
                     break;
                 case 3:
                     account.ViewBalance();
@@ -110,7 +113,7 @@ class Program
                     Console.WriteLine("   Thank you Custoumer! \n ");
                     break;
                 default:
-                    Console.WriteLine("   Invalid choice. Try again !");
+                    Console.WriteLine("   Invalid choice.Try again !");
                     break;
             }
         } while (choice != 5);
